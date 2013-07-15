@@ -1,4 +1,6 @@
 Giftsaverzzz::Application.routes.draw do
+  root :to => 'recipients#index'
+  resources :recipients
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
