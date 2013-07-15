@@ -1,0 +1,8 @@
+<h1>Gift Recipients</h1>
+<ul>
+  <% @recipients.each do |recipient| %>
+    <li>
+      <%= link_to recipient.name, recipient %>
+    </li>
+  <% end %>
+</ul>
