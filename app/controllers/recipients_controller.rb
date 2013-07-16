@@ -1,5 +1,5 @@
 class RecipientsController < ApplicationController
-  def index
-    @recipients = Recipient.all
+  def show
+    @recipient = Recipient.find(params[:id])
   end
 end

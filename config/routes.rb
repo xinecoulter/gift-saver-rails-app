@@ -1,5 +1,8 @@
 Giftsaverzzz::Application.routes.draw do
-  root :to => 'recipients#index'
+  root :to => 'users#login'
+  get '/users/:username' => 'users#index'
+  get '/users/:username/recipients/:id' => 'recipients#show'
+  resources :users
   resources :recipients
   # The priority is based upon order of creation:
   # first created -> highest priority.
