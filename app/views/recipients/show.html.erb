@@ -1,3 +1,10 @@
 <h1><%= @recipient.name %></h1>
 <h2>Birthday: <%= "#{@recipient.birthday.month}/#{@recipient.birthday.day}/#{@recipient.birthday.year}" %></h2>
 <h3>Potential Gifts:</h3>
+<ul>
+  <% @recipient.gifts.each do |gift| %>
+    <li>
+      <%= gift.name %>
+    </li>
+  <% end %>
+</ul>
