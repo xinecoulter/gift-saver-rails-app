@@ -4,12 +4,16 @@ class RecipientsController < ApplicationController
     @user = User.where(username: params[:username]).first
   end
 
+  # post '/users/:username/recipients'
   def create
     @user = User.where(username: params[:username]).first
     @recipient = Recipient.new(name: params[:name], birthday: params[:birthday])
-    @recipient.save
-    @user.recipients << @recipient
-    redirect_to "/users/#{@user.username}"
+    if @recipient.save
+      @user.recipients << @recipient
+      redirect_to "/users/#{@user.username}"
+    else
+      render action: "new"
+    end
   end
 
   # get '/users/:username/recipients/:id'
