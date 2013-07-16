@@ -1,6 +1,10 @@
 <h1><%= @recipient.name %></h1>
-<h2>Birthday: <%= "#{@recipient.birthday.month}/#{@recipient.birthday.day}/#{@recipient.birthday.year}" %></h2>
-<h3>You have <%= @time_until_next_birthday %> days until <%= @recipient.name %>'s next birthday!</h3>
+<% if @recipient.birthday? %>
+  <h2>Birthday: <%= "#{@recipient.birthday.month}/#{@recipient.birthday.day}/#{@recipient.birthday.year}" %></h2>
+  <h3>You have <%= @time_until_next_birthday %> days until <%= @recipient.name %>'s next birthday!</h3>
+<% else %>
+  <h2>Birthday: unknown</h2>
+<% end %>
 <h3>Potential Gifts:</h3>
 <ul>
   <% @recipient.gifts.each do |gift| %>
