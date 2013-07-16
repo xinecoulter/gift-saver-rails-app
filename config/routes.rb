@@ -3,7 +3,9 @@ Giftsaverzzz::Application.routes.draw do
   get '/users/new' => 'users#new'
   post '/users' => 'users#create'
   get '/users/:username' => 'users#show'
+
   get '/users/:username/recipients/new' => 'recipients#new'
+  post '/users/:username/recipients' => 'recipients#create'
   get '/users/:username/recipients/:id' => 'recipients#show'
   resources :users
   resources :recipients

@@ -1,6 +1,6 @@
 <h1>Add a gift recipient</h1>
 
-<form action="/recipients" method="post">
+<form action="/users/<%= @user.username %>/recipients" method="post">
   <label for="name">Enter a name</label><br/>
   <input type="string" name="name" autofocus="true"/><br/>
   <label for="name">Enter a birthday</label><br/>
