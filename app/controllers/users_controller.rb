@@ -3,9 +3,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], username: params[:username], password: params[:password])
-    user.save
-    redirect_to "/users/#{user.username}"
+    @user = User.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], username: params[:username], password: params[:password])
+    if @user.save
+      redirect_to "/users/#{@user.username}"
+    else
+      render action: "new"
+    end
   end
 
   def index

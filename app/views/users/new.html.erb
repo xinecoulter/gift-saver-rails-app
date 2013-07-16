@@ -1,4 +1,14 @@
 <h1>Create a user account</h1>
+
+<% if @user.errors.any? %>
+  <h2>Please resolve the following <%= pluralize(@user.errors.count, "error") %>:</h2>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <form action="/users" method="post">
   <label for="first_name">Enter first name</label><br/>
   <input type="string" name="first_name" autofocus="true"/><br/>
