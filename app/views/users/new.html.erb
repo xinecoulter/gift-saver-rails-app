@@ -1,1 +1,14 @@
-<h1>Hello from new users</h1>
+<h1>Create a user account</h1>
+<form action="/users" method="post">
+  <label for="first_name">Enter first name</label><br/>
+  <input type="string" name="first_name" autofocus="true"/><br/>
+  <label for="last_name">Enter last name</label><br/>
+  <input type="string" name="last_name"/><br/>
+  <label for="email">Enter e-mail address</label><br/>
+  <input type="string" name="email"/><br/>
+  <label for="username">Enter a username (must be 6-10 characters long)</label><br/>
+  <input type="string" name="username"/><br/>
+  <label for="password">Enter a password (must be 6-20 characters long)</label><br/>
+  <input type="string" name="password"/><br/>
+  <button>Submit</button>
+</form>
