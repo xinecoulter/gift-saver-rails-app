@@ -4,6 +4,6 @@ class Recipient < ActiveRecord::Base
 
   attr_accessible :name, :birthday
 
-  # validates :name, presence: true
-  # validates :name, length: { minimum: 2 }
+  validates :name, presence: true
+  validates :name, length: { minimum: 2 }
 end
