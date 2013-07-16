@@ -7,6 +7,8 @@ class CreateGiftsTable < ActiveRecord::Migration
       t.string :price
       t.text :url  # url to product on Amazon
       t.integer :rating, :default => 5
+      t.references :user
+      t.references :recipient
       t.timestamps
     end
   end
