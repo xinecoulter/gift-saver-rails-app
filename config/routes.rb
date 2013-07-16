@@ -2,7 +2,8 @@ Giftsaverzzz::Application.routes.draw do
   root :to => 'welcome#index'
   get '/users/new' => 'users#new'
   post '/users' => 'users#create'
-  get '/users/:username' => 'users#index', as: 'home_path'
+  get '/users/:username' => 'users#show'
+  get '/users/:username/recipients/new' => 'recipients#new'
   get '/users/:username/recipients/:id' => 'recipients#show'
   resources :users
   resources :recipients

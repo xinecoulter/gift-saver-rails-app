@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def index
+  def show
     @user = User.where(username: params[:username]).first
     @recipients = @user.recipients
   end
