@@ -1,4 +1,9 @@
 class RecipientsController < ApplicationController
+  # get '/users/:username/recipients/new'
+  def new
+  end
+
+  # get '/users/:username/recipients/:id'
   def show
     require 'date'
     @recipient = Recipient.find(params[:id])
