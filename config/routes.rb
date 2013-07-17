@@ -1,6 +1,6 @@
 Giftsaverzzz::Application.routes.draw do
   root :to => 'welcome#index'
-  get '/users/new' => 'users#new'
+  get '/users/new' => 'users#new', as: "create_account"
   post '/users' => 'users#create'
   get '/users/:username' => 'users#show'
   get '/users/:username/edit' => 'users#edit'
@@ -16,6 +16,10 @@ Giftsaverzzz::Application.routes.draw do
 
   get '/users/:username/gifts' => 'gifts#search'
   get '/users/:username/gifts/new' => 'gifts#new'
+
+  get '/sign_in' => 'sessions#new', as: "sign_in"
+  get '/sign_out' => 'sessions#destroy', as: "sign_out"
+  resources :sessions
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
