@@ -18,4 +18,22 @@ class UsersController < ApplicationController
     @user = User.where(username: params[:username]).first
     @recipients = @user.recipients
   end
+
+  # get '/users/:username/edit'
+  def edit
+    @user = User.where(username: params[:username]).first
+  end
+
+  def update
+    @user = User.where(username: params[:username]).first
+    @user.first_name = params[:first_name]
+    @user.last_name = params[:last_name]
+    @user.email = params[:email]
+    @user.password = params[:password]
+    if @user.save
+      redirect_to "/users/#{@user.username}"
+    else
+      render action: "edit"
+    end
+  end
 end

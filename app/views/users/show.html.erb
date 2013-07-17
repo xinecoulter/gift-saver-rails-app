@@ -1,5 +1,7 @@
 <h1>Welcome, <%= @user.first_name %>!</h1>
 
+<a href="/users/<%= @user.username %>/edit">Change account settings</a>
+
 <% if @recipients.any? %>
   <h2>Gift Recipients:</h2>
   <ul>
