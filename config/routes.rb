@@ -14,6 +14,9 @@ Giftsaverzzz::Application.routes.draw do
   put '/users/:username/recipients/:id' => 'recipients#update'
   delete '/users/:username/recipients/:id' => 'recipients#destroy'
 
+  get '/users/:username/gifts' => 'gifts#search'
+  get '/users/:username/gifts/new' => 'gifts#new'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

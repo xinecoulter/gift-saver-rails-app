@@ -1,0 +1,11 @@
+<h1>Search for a gift</h1>
+
+<form action="/users/<%= @user.username %>/gifts/new" method="get">
+  <select name="category">
+    <option value="Books">Books</option>
+  </select>
+  <input type="string" name="name" />
+  <button>Search</button>
+</form>
+
+<h1><%= @results %></h1>
