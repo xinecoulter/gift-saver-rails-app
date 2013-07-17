@@ -18,6 +18,7 @@ class RecipientsController < ApplicationController
 
   # get '/users/:username/recipients/:id'
   def show
+    @user = User.where(username: params[:username]).first
     require 'date'
     @recipient = Recipient.find(params[:id])
     if @recipient.birthday?
