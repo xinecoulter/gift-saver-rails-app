@@ -1,13 +1,14 @@
 class UsersController < ApplicationController
   # get '/users/new'
   def new
+    @user = User.new
   end
 
   # post '/users'
   def create
-    @user = User.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], username: params[:username], password: params[:password])
+    @user = User.new(params[:user])
     if @user.save
-      redirect_to "/users/#{@user.username}"
+      redirect_to "/", :notice => "You successfully created an account!"
     else
       render action: "new"
     end

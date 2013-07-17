@@ -1,9 +1,12 @@
 class User < ActiveRecord::Base
-  has_many :recipients
-  has_many :gifts
+  # Allows for mass assignment
+  attr_accessible :first_name, :last_name, :email, :username, :password, :password_confirmation
 
   attr_accessor :password
   before_save :encrypt_password
+
+  has_many :recipients
+  has_many :gifts
 
   # For validation
   validates :password, confirmation: :true
@@ -14,9 +17,6 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, length: { minimum: 2 }
   validates :username, length: { in: 6..15 }
   validates :password, length: { in: 6..20 }
-
-  # Allows for mass assignment
-  attr_accessible :first_name, :last_name, :email, :username, :password, :password_confirmation
 
   def encrypt_password
     if password.present?
