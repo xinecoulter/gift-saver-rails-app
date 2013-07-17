@@ -13,7 +13,7 @@ class GiftsController < ApplicationController
   def new
     @user = User.where(username: params[:username]).first
     if params[:name]
-      item_search = ItemSearch.new(params[:category], { 'Title' => params[:name] })
+      item_search = ItemSearch.new(params[:category], { 'Keywords' => params[:name] })
       response_group = ResponseGroup.new( 'Medium' )
       request = Request.new
       results = request.search(item_search, response_group)

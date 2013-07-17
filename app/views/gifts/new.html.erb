@@ -2,6 +2,7 @@
 
 <form action="/users/<%= @user.username %>/gifts/new" method="get">
   <select name="category">
+    <option value="All">All</option>
     <option value="Books">Books</option>
   </select>
   <input type="string" name="name" />
@@ -13,7 +14,12 @@
   <ol>
     <% @results.each do |result| %>
       <li>
-        <%= result.item_attributes.author %>
+        <a href=""><%= result.item_attributes.title %></a>
+        <ul>
+          <li>Category: <%= result.item_attributes.product_group %></li>
+          <li>Price: <%= result.item_attributes.list_price.formatted_price %></li>
+          <li>***<%= result.item_attributes %></li>
+        </ul>
       </li>
     <% end %>
   </ol>
