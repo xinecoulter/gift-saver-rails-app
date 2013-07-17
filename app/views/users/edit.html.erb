@@ -1,6 +1,6 @@
 <h1>Update account</h1>
 
-<!-- Displays errors in creating an account -->
+<!-- Displays errors in updating an account -->
 <% unless @user.nil? %>
   <% if @user.errors.any? %>
     <h2>Please resolve the following <%= pluralize(@user.errors.count, "error") %>:</h2>

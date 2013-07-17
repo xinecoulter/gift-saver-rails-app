@@ -1,6 +1,6 @@
 <h1>Update recipient</h1>
 
-<!-- Displays errors in creating a recipient -->
+<!-- Displays errors in updating a recipient -->
 <% unless @recipient.nil? %>
   <% if @recipient.errors.any? %>
     <h2>Please resolve the following <%= pluralize(@recipient.errors.count, "error") %>:</h2>
