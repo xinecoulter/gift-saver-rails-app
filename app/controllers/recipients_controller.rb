@@ -46,4 +46,12 @@ class RecipientsController < ApplicationController
       render action: "edit"
     end
   end
+
+  # delete '/users/:username/recipients/:id'
+  def destroy
+    user = User.where(username: params[:username]).first
+    recipient = Recipient.find(params[:id])
+    recipient.destroy
+    redirect_to "/users/#{user.username}"
+  end
 end
