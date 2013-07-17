@@ -14,11 +14,18 @@
 <% else %>
   <h2>Birthday: unknown</h2>
 <% end %>
-<h3>Potential Gifts:</h3>
-<ul>
-  <% @recipient.gifts.each do |gift| %>
-    <li>
-      <%= gift.name %>
-    </li>
-  <% end %>
-</ul>
+
+<% if @recipient.gifts.any? %>
+  <h3>Potential Gifts:</h3>
+  <ul>
+    <% @recipient.gifts.each do |gift| %>
+      <li>
+        <%= gift.name %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <h3>Potential Gifts: none</h3>
+<% end %>
+
+<a href="/users/<%= @user.username %>/gifts">Find gifts</a>
