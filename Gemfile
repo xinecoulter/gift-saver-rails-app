@@ -37,7 +37,11 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
+# Ruby/AWS
 gem 'ruby-aaws'
+
+# This gives us authentication methods
+gem 'bcrypt-ruby', require: 'bcrypt'
 
 group :development, :test do
   gem 'pry-rails'           # Causes rails console to open pry
