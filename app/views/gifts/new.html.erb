@@ -8,4 +8,13 @@
   <button>Search</button>
 </form>
 
-<h1><%= @results %></h1>
+<% unless @results.nil? %>
+  <h4>Showing <%= @results.count %> results</h4>
+  <ol>
+    <% @results.each do |result| %>
+      <li>
+        <%= result.item_attributes.author %>
+      </li>
+    <% end %>
+  </ol>
+<% end %>
