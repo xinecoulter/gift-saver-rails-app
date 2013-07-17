@@ -1,0 +1,22 @@
+<h1>Update recipient</h1>
+
+<!-- Displays errors in creating a recipient -->
+<% unless @recipient.nil? %>
+  <% if @recipient.errors.any? %>
+    <h2>Please resolve the following <%= pluralize(@recipient.errors.count, "error") %>:</h2>
+    <ul>
+      <% @recipient.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
+
+<form action="/users/<%= @user.username %>/recipients/<%= @recipient.id %>" method="post">
+  <label for="name">Change name</label><br/>
+  <input type="string" name="name" value="<%= @recipient.name %>" autofocus="true"/><br/>
+  <label for="name">Change birthday</label><br/>
+  <input type="date" name="birthday" value="<%= @recipient.birthday %>" /><br/>
+  <input type="hidden" name="_method" value="put" />
+  <button>Submit</button>
+</form>

@@ -27,4 +27,23 @@ class RecipientsController < ApplicationController
       @time_until_next_birthday = (birthday - DateTime.now).to_i
     end
   end
+
+  # get '/users/:username/recipients/:id/edit'
+  def edit
+    @user = User.where(username: params[:username]).first
+    @recipient = Recipient.find(params[:id])
+  end
+
+  # put '/users/:username/recipients/:id'
+  def update
+    @user = User.where(username: params[:username]).first
+    @recipient = Recipient.find(params[:id])
+    @recipient.name = params[:name]
+    @recipient.birthday = params[:birthday]
+    if @recipient.save
+      redirect_to "/users/#{@user.username}/recipients/#{@recipient.id}"
+    else
+      render action: "edit"
+    end
+  end
 end
