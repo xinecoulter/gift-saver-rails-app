@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     @user = User.where(username: params[:username]).first
   end
 
+  # put '/users/:username'
   def update
     @user = User.where(username: params[:username]).first
     @user.first_name = params[:first_name]
@@ -35,5 +36,12 @@ class UsersController < ApplicationController
     else
       render action: "edit"
     end
+  end
+
+  # delete '/users/:username'
+  def destroy
+    user = User.where(username: params[:username]).first
+    user.destroy
+    redirect_to "/"
   end
 end

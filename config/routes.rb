@@ -5,6 +5,7 @@ Giftsaverzzz::Application.routes.draw do
   get '/users/:username' => 'users#show'
   get '/users/:username/edit' => 'users#edit'
   put '/users/:username' => 'users#update'
+  delete '/users/:username' => 'users#destroy'
 
   get '/users/:username/recipients/new' => 'recipients#new'
   post '/users/:username/recipients' => 'recipients#create'

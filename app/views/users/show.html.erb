@@ -1,6 +1,10 @@
 <h1>Welcome, <%= @user.first_name %>!</h1>
 
 <a href="/users/<%= @user.username %>/edit">Change account settings</a>
+<form action="/users/<%= @user.username %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button>Delete Account</button>
+</form>
 
 <% if @recipients.any? %>
   <h2>Gift Recipients:</h2>
