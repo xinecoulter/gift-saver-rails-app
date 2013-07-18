@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   def show
     @user = User.where(username: params[:username]).first
     @recipients = @user.recipients
+    @gifts = @user.gifts
   end
 
   # get '/users/:username/edit'

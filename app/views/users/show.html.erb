@@ -19,6 +19,19 @@
   <h2>You have no gift recipients</h2>
 <% end %>
 
+<% if @gifts.any? %>
+  <h2>Potential Gifts:</h2>
+  <ul>
+    <% @gifts.each do |gift| %>
+      <li>
+        <%= link_to gift.name, "/users/#{@user.username}/gifts/#{gift.id}" %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <h2>You have no potential gifts</h2>
+<% end %>
+
 <a href="/users/<%= @user.username %>/recipients/new">Create a new recipient</a><br/>
 
 <a href="/users/<%= @user.username %>/gifts">Find gifts</a>
