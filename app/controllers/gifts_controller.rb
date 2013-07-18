@@ -47,15 +47,9 @@ class GiftsController < ApplicationController
 
   # Retrieves url for aws_show action
   def get_url(result)
-    url = nil
-    result.item_links.item_link.to_s.split("\n").each do |line|
-      if line.include? "url"
-        num = "url = ".length
-        url = line[num..line.length]
-      end
-      break unless url.nil?
-    end
-    if url.nil?
+    if result.item_links.item_link[0]
+      url = result.item_links.item_link[0].url
+    else
       url = "n/a"
     end
     return url
