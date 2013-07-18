@@ -88,6 +88,7 @@ class GiftsController < ApplicationController
   # get '/users/:username/gifts/:id'
   # shows amazon product already saved to database
   def show
+    @user = User.where(username: params[:username]).first
     @gift = Gift.find(params[:id])
     if @gift.recipient_id
       @recipient = Recipient.find(@gift.recipient_id)
@@ -98,6 +99,7 @@ class GiftsController < ApplicationController
 
   # post '/users/:username/gifts/:id'
   def edit
+    @user = User.where(username: params[:username]).first
     @gift = Gift.find(params[:id])
     if @gift.recipient_id
       @recipient = Recipient.find(@gift.recipient_id)
@@ -116,5 +118,14 @@ class GiftsController < ApplicationController
     end
     @gift.save
     render "show"
+  end
+
+  # put '/users/:username/gifts/:id'
+  def update
+    user = User.where(username: params[:username]).first
+    gift = Gift.find(params[:id])
+    gift.recipient_id = params[:new_recipient_id]
+    gift.save
+    redirect_to "/users/#{user.username}/gifts/#{gift.id}"
   end
 end

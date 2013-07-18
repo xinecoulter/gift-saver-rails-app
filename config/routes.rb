@@ -20,6 +20,7 @@ Giftsaverzzz::Application.routes.draw do
   post '/users/:username/gifts' => 'gifts#create'
   get '/users/:username/gifts/:id' => 'gifts#show'
   post '/users/:username/gifts/:id' => 'gifts#edit', as: 'edit_gift'
+  put '/users/:username/gifts/:id' => 'gifts#update'
 
   get '/sign_in' => 'sessions#new', as: "sign_in"
   get '/sign_out' => 'sessions#destroy', as: "sign_out"
