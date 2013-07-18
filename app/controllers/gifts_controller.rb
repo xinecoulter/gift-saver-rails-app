@@ -59,11 +59,11 @@ class GiftsController < ApplicationController
   # asin is product id number
   def aws_show
     @user = User.where(username: params[:username]).first
-    item_search = ItemSearch.new('All', { 'Keywords' => params[:asin] })
+    item_lookup = ItemLookup.new( 'ASIN', { 'ItemId' => params[:asin], 'MerchantId' => 'Amazon' } )
     response_group = ResponseGroup.new( 'Medium' )
     request = Request.new
-    results = request.search(item_search, response_group)
-    @result = results.item_search_response[0].items[0].item[0]
+    results = request.search( item_lookup, response_group )
+    @result = results.item_lookup_response[0].items.item
     @image_url = get_image_url(@result)
     @price = get_price(@result)
     @url = get_url(@result)
