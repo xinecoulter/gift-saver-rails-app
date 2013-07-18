@@ -5,3 +5,21 @@
   <li>Price: <%= @price %></li>
   <li><a href="<%= @url %>" target="_blank">Click to view product on Amazon!</a></li>
 </ul>
+
+<form action="/users/<%= @user.username %>/gifts" method="post">
+  <label>Select a gift recipient</label>
+  <select name="recipient_id">
+    <option value="none">---</option>
+    <% @user.recipients.each do |recipient| %>
+      <option value="<%= recipient.id %>">
+        <%= recipient.name %>
+      </option>
+    <% end %>
+  </select>
+  <input type='hidden' value=<%= @result.item_attributes.title %> name="name" />
+  <input type='hidden' value=<%= @result.item_attributes.product_group %> name="category" />
+  <input type='hidden' value=<%= @image_url %> name="image" />
+  <input type='hidden' value=<%= @price %> name="price" />
+  <input type='hidden' value=<%= @url %> name="url" />
+  <button>Add gift</button>
+</form>

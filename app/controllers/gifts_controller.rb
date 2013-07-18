@@ -85,4 +85,18 @@ class GiftsController < ApplicationController
     @price = get_price(@result)
     @url = get_url(@result)
   end
+
+  # post '/users/:username/gifts'
+  def create
+    @user = User.where(username: params[:username]).first
+    @gift = Gift.new(name: params[:name], category: params[:category], image: params[:image], price: params[:price], url: params[:url], rating: 5)
+    @gift.save
+    @user.gifts << @gift
+    unless params[:recipient_id] == "none"
+      recipient = Recipient.find(params[:recipient_id])
+      recipient.gifts << @gift
+      redirect_to "/users/#{@user.username}/recipients/#{recipient.id}"
+    end
+    redirect_to "/users/#{@user.username}"
+  end
 end

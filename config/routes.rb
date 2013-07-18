@@ -17,6 +17,7 @@ Giftsaverzzz::Application.routes.draw do
   get '/users/:username/gifts' => 'gifts#search'
   get '/users/:username/gifts/new' => 'gifts#new'
   get '/users/:username/gifts/search/:asin' => 'gifts#aws_show'
+  post '/users/:username/gifts' => 'gifts#create'
 
   get '/sign_in' => 'sessions#new', as: "sign_in"
   get '/sign_out' => 'sessions#destroy', as: "sign_out"
