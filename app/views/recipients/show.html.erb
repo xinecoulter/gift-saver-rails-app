@@ -1,3 +1,5 @@
+<a href="/users/<%= @user.username %>">Back to index</a>
+
 <h1><%= @recipient.name %></h1>
 
 <a href="/users/<%= @user.username %>/recipients/<%= @recipient.id %>/edit">Edit recipient</a><br/>
@@ -5,8 +7,6 @@
   <input type="hidden" name="_method" value="delete">
   <button>Delete Recipient</button>
 </form>
-
-<a href="/users/<%= @user.username %>">Back to index</a>
 
 <% if @recipient.birthday? %>
   <h2>Birthday: <%= "#{@recipient.birthday.month}/#{@recipient.birthday.day}/#{@recipient.birthday.year}" %></h2>
