@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       # This is if login worked
       # Stores the user_id in a cookie
       session[:user_id] = user.id
-      redirect_to root_url, notice: "Signed in"
+      redirect_to "/users/#{user.username}", notice: "Signed in"
     else
       # This is if login didn't work
       flash.now.alert = "Invalid username or password"
