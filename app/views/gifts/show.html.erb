@@ -9,5 +9,5 @@
   <% else %>
     <li>Intended Gift Recipient: <%= @recipient.name %></li>
   <% end %>
-  <li>Rating: <%= @gift.rating %></li>
+  <li>Rating: <%= @gift.rating %><%= button_to "+1", edit_gift_path(rating: "up") %><%= button_to "-1", edit_gift_path(rating: "down") %></li>
 </ul>

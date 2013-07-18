@@ -95,4 +95,26 @@ class GiftsController < ApplicationController
       @recipient = nil
     end
   end
+
+  # post '/users/:username/gifts/:id'
+  def edit
+    @gift = Gift.find(params[:id])
+    if @gift.recipient_id
+      @recipient = Recipient.find(@gift.recipient_id)
+    else
+      @recipient = nil
+    end
+    case params[:rating]
+    when "up"
+      if @gift.rating <10
+        @gift.rating += 1
+      end
+    when "down"
+      if @gift.rating >0
+        @gift.rating -= 1
+      end
+    end
+    @gift.save
+    render "show"
+  end
 end
