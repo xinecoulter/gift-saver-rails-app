@@ -6,6 +6,7 @@ class GiftsController < ApplicationController
   # get '/users/:username/gifts'
   def search
     @user = User.where(username: params[:username]).first
+    @categories = %w( All Apparel Automotive Baby Beauty Blended Books Classical DigitalMusic DVD Electronics ForeignBooks GourmetFood Grocery HealthPersonalCare Hobbies HomeGarden HomeImprovement Industrial Jewelry KindleStore Kitchen Lighting Magazines Merchants Miscellaneous MP3Downloads Music MusicalInstruments MusicTracks OfficeProducts OutdoorLiving Outlet PCHardware PetSupplies Photo Shoes SilverMerchants Software SoftwareVideoGames SportingGoods Tools Toys UnboxVideo VHS Video VideoGames Watches Wireless WirelessAccessories )
     render "new"
   end
 
@@ -26,15 +27,9 @@ class GiftsController < ApplicationController
 
   # Retrieves image_url for aws_show action
   def get_image_url(result)
-    image_url = nil
-    result.image_sets.to_s.split("\n").each do |line|
-      if line.include? "medium_image"
-        num = "medium_image = url = ".length
-        image_url = line[num..line.length]
-      end
-      break unless image_url.nil?
-    end
-    if image_url.nil?
+    if result.image_sets.image_set.length == 1
+      image_url = result.image_sets.image_set.medium_image.url
+    else
       image_url = "http://askmissa.com/wp-content/uploads/2008/11/unavailable.gif"
     end
     return image_url
@@ -42,18 +37,12 @@ class GiftsController < ApplicationController
 
   # Retrieves price for aws_show action
   def get_price(result)
-    price_string = nil
-    result.item_attributes.list_price.to_s.split("\n").each do |line|
-      if line.include? "formatted_price = "
-        num = "formatted_price = ".length
-        price_string = line[num..line.length]
-      end
-      break unless price_string.nil?
+    if result.item_attributes.list_price
+      price = result.item_attributes.list_price.formatted_price
+    else
+      price = "whoops"
     end
-    if price_string.nil?
-      price_string = "n/a"
-    end
-    return price_string
+    return price
   end
 
   # Retrieves url for aws_show action
@@ -92,11 +81,12 @@ class GiftsController < ApplicationController
     @gift = Gift.new(name: params[:name], category: params[:category], image: params[:image], price: params[:price], url: params[:url], rating: 5)
     @gift.save
     @user.gifts << @gift
-    unless params[:recipient_id] == "none"
+    if params[:recipient_id] == "none"
+      redirect_to "/users/#{@user.username}"
+    else
       recipient = Recipient.find(params[:recipient_id])
       recipient.gifts << @gift
       redirect_to "/users/#{@user.username}/recipients/#{recipient.id}"
     end
-    redirect_to "/users/#{@user.username}"
   end
 end
