@@ -128,4 +128,12 @@ class GiftsController < ApplicationController
     gift.save
     redirect_to "/users/#{user.username}/gifts/#{gift.id}"
   end
+
+  # delete '/users/:username/gifts/:id'
+  def destroy
+    user = User.where(username: params[:username]).first
+    gift = Gift.find(params[:id])
+    gift.destroy
+    redirect_to "/users/#{user.username}"
+  end
 end
