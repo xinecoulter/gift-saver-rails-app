@@ -15,7 +15,9 @@
   <ol>
     <% @results.each do |result| %>
       <li>
-        <a href="/users/<%= @user.username %>/gifts/search/<%= result.asin %>"><%= result.item_attributes.title %></a>
+        <a href="/users/<%= @user.username %>/gifts/search/<%= result.asin %>"><%= result.item_attributes.title %></a><br/>
+        Pic: <img src="<%= result.medium_image.url.to_s %>" />
+        Url: <%= result.item_links.item_link.to_s.split(" ")[6] %>
         <ul>
           <li>Category: <%= result.item_attributes.product_group %></li>
           <li>Price: <%= result.item_attributes.list_price.to_s.split(" ").last %></li>
