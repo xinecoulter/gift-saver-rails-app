@@ -1,6 +1,6 @@
 <h1>Update account</h1>
 
-<!-- Displays errors in updating an account -->
+<!-- Displays errors in creating an account -->
 <% unless @user.nil? %>
   <% if @user.errors.any? %>
     <h2>Please resolve the following <%= pluralize(@user.errors.count, "error") %>:</h2>
@@ -19,8 +19,6 @@
   <input type="string" name="last_name" value="<%= @user.last_name %>" /><br/>
   <label for="email">Change e-mail address</label><br/>
   <input type="string" name="email" value="<%= @user.email %>" /><br/>
-  <label for="password">Change password (must be 6-20 characters long)</label><br/>
-  <input type="string" name="password" value="<%= @user.password %>" /><br/>
-  <input type="hidden" name="_method" value="put" />
+  <input type="hidden" name="_method" value="put">
   <button>Submit</button>
 </form>
