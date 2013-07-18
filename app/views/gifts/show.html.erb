@@ -4,4 +4,9 @@
   <li>Category: <%= @gift.category %></li>
   <li>Price: <%= @gift.price %></li>
   <li><a href="<%= @gift.url %>" target="_blank">Click to view product on Amazon!</a></li>
+  <% if @recipient == nil %>
+    <li>Intended Gift Recipient: none</li>
+  <% else %>
+    <li>Intended Gift Recipient: <%= @recipient.name %></li>
+  <% end %>
 </ul>

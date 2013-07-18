@@ -89,5 +89,10 @@ class GiftsController < ApplicationController
   # shows amazon product already saved to database
   def show
     @gift = Gift.find(params[:id])
+    if @gift.recipient_id
+      @recipient = Recipient.find(@gift.recipient_id)
+    else
+      @recipient = nil
+    end
   end
 end
