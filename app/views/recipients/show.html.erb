@@ -20,7 +20,7 @@
   <ul>
     <% @recipient.gifts.each do |gift| %>
       <li>
-        <a href=""><%= gift.name %></a>
+        <a href="/users/<%= @user.username %>/gifts/<%= gift.id %>"><%= gift.name %></a>
       </li>
     <% end %>
   </ul>

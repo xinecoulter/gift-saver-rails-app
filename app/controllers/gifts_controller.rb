@@ -57,6 +57,7 @@ class GiftsController < ApplicationController
 
   # get '/users/:username/gifts/search/:asin'
   # asin is product id number
+  # shows amazon product not saved to database
   def aws_show
     @user = User.where(username: params[:username]).first
     item_lookup = ItemLookup.new( 'ASIN', { 'ItemId' => params[:asin], 'MerchantId' => 'Amazon' } )
@@ -82,5 +83,11 @@ class GiftsController < ApplicationController
       recipient.gifts << @gift
       redirect_to "/users/#{@user.username}/recipients/#{recipient.id}"
     end
+  end
+
+  # get '/users/:username/gifts/:id'
+  # shows amazon product already saved to database
+  def show
+    @gift = Gift.find(params[:id])
   end
 end
