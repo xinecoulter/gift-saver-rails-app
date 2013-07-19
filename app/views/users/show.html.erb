@@ -1,10 +1,6 @@
-<h1>Welcome, <%= @user.first_name %>!</h1>
+<%= render partial: "home_navbar" %>
 
-<a href="/users/<%= @user.username %>/edit">Change account settings</a>
-<form action="/users/<%= @user.username %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <button>Delete Account</button>
-</form>
+<h1>Welcome, <%= @user.first_name %>!</h1>
 
 <% if @recipients.any? %>
   <h2>Gift Recipients:</h2>
@@ -31,7 +27,3 @@
 <% else %>
   <h2>You have no potential gifts</h2>
 <% end %>
-
-<a href="/users/<%= @user.username %>/recipients/new">Create a new recipient</a><br/>
-
-<a href="/users/<%= @user.username %>/gifts">Find gifts</a>
