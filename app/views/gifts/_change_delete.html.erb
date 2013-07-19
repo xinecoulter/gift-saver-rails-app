@@ -1,0 +1,20 @@
+<!-- Change Gift Recipient -->
+<form action="/users/<%= @user.username %>/gifts/<%= @gift.id %>" method="post">
+  <label>Change gift recipient</label>
+  <select name="new_recipient_id">
+    <option value="none">---</option>
+    <% @user.recipients.each do |recipient| %>
+      <option value="<%= recipient.id %>">
+        <%= recipient.name %>
+      </option>
+    <% end %>
+  </select>
+  <input type="hidden" name="_method" value="put">
+<button>Update</button>
+</form>
+
+<!-- Delete Gift -->
+<form action="/users/<%= @user.username %>/gifts/<%= @gift.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button>Delete Gift</button>
+</form>
