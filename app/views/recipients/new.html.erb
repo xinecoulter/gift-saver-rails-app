@@ -1,16 +1,7 @@
 <h1>Add a gift recipient</h1>
 
 <!-- Displays errors in creating a recipient -->
-<% unless @recipient.nil? %>
-  <% if @recipient.errors.any? %>
-    <h2>Please resolve the following <%= pluralize(@recipient.errors.count, "error") %>:</h2>
-    <ul>
-      <% @recipient.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  <% end %>
-<% end %>
+<%= render partial: "error" %>
 
 <form action="/users/<%= @user.username %>/recipients" method="post">
   <label for="name">Enter a name</label><br/>
