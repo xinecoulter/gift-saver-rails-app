@@ -4,16 +4,18 @@ class GiftsController < ApplicationController
   include Amazon::AWS::Search
   include GiftsHelper
 
+  @@categories = %w( All Apparel Automotive Baby Beauty Blended Books Classical DigitalMusic DVD Electronics ForeignBooks GourmetFood Grocery HealthPersonalCare Hobbies HomeGarden HomeImprovement Industrial Jewelry KindleStore Kitchen Lighting Magazines Merchants Miscellaneous MP3Downloads Music MusicalInstruments MusicTracks OfficeProducts OutdoorLiving Outlet PCHardware PetSupplies Photo Shoes SilverMerchants Software SoftwareVideoGames SportingGoods Tools Toys UnboxVideo VHS Video VideoGames Watches Wireless WirelessAccessories )
+
   # get '/users/:username/gifts'
   def search
     @user = User.where(username: params[:username]).first
-    @categories = %w( All Apparel Automotive Baby Beauty Blended Books Classical DigitalMusic DVD Electronics ForeignBooks GourmetFood Grocery HealthPersonalCare Hobbies HomeGarden HomeImprovement Industrial Jewelry KindleStore Kitchen Lighting Magazines Merchants Miscellaneous MP3Downloads Music MusicalInstruments MusicTracks OfficeProducts OutdoorLiving Outlet PCHardware PetSupplies Photo Shoes SilverMerchants Software SoftwareVideoGames SportingGoods Tools Toys UnboxVideo VHS Video VideoGames Watches Wireless WirelessAccessories )
+    @categories = @@categories
     render "new"
   end
 
   # get '/users/:username/gifts/new' => 'gifts#new'
   def new
-    @categories = %w( All Apparel Automotive Baby Beauty Blended Books Classical DigitalMusic DVD Electronics ForeignBooks GourmetFood Grocery HealthPersonalCare Hobbies HomeGarden HomeImprovement Industrial Jewelry KindleStore Kitchen Lighting Magazines Merchants Miscellaneous MP3Downloads Music MusicalInstruments MusicTracks OfficeProducts OutdoorLiving Outlet PCHardware PetSupplies Photo Shoes SilverMerchants Software SoftwareVideoGames SportingGoods Tools Toys UnboxVideo VHS Video VideoGames Watches Wireless WirelessAccessories )
+    @categories = @@categories
     @user = User.where(username: params[:username]).first
     if params[:name]
       item_search = ItemSearch.new(params[:category], { 'Keywords' => params[:name] })
@@ -77,16 +79,9 @@ class GiftsController < ApplicationController
     else
       @recipient = nil
     end
-    case params[:rating]
-    when "up"
-      if @gift.rating <10
-        @gift.rating += 1
-      end
-    when "down"
-      if @gift.rating >0
-        @gift.rating -= 1
-      end
-    end
+
+    change_rating(params[:rating])
+
     @gift.save
     render "show"
   end

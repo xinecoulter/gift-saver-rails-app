@@ -28,4 +28,18 @@ module GiftsHelper
     end
     return url
   end
+
+  # Changes rating of potential gift
+  def change_rating(params)
+    case params
+    when "up"
+      if @gift.rating <10
+        @gift.rating += 1
+      end
+    when "down"
+      if @gift.rating >0
+        @gift.rating -= 1
+      end
+    end
+  end
 end
