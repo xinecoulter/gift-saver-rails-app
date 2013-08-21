@@ -40,7 +40,8 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 # Ruby/AWS
-gem 'jaybbb-ruby-aaws'
+# gem 'jaybbb-ruby-aaws'
+gem 'zacharyw-ruby-aaws'
 # gem 'ruby-aaws'
 
 # This gives us authentication methods
