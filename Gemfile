@@ -40,8 +40,8 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 # Ruby/AWS
-gem 'jaybbb-ruby-aaws'
-# gem 'ruby-aaws'
+# gem 'jaybbb-ruby-aaws'
+gem 'ruby-aaws'
 
 # This gives us authentication methods
 gem 'bcrypt-ruby', require: 'bcrypt'
