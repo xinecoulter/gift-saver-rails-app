@@ -21,7 +21,8 @@ class GiftsController < ApplicationController
       item_search = ItemSearch.new(params[:category], { 'Keywords' => params[:name] })
       response_group = ResponseGroup.new( 'Medium' )
       request = Request.new
-      results = request.search(item_search, response_group)
+      # results = request.search(item_search, response_group)
+      results = request.search(item_search)
       @results = results.item_search_response[0].items[0].item[0..9]
     else
       @results = nil
