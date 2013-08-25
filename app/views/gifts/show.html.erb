@@ -9,7 +9,7 @@
   <% if @recipient == nil %>
     <li>Intended Gift Recipient: none</li>
   <% else %>
-    <li>Intended Gift Recipient: <%= @recipient.name %></li>
+    <li>Intended Gift Recipient: <a href="/users/<%= @user.username %>/recipients/<%= @recipient.id %>"><%= @recipient.name %></a></li>
   <% end %>
   <li>Rating: <%= @gift.rating %><%= button_to "+1", edit_gift_path(rating: "up") %><%= button_to "-1", edit_gift_path(rating: "down") %></li>
 </ul>

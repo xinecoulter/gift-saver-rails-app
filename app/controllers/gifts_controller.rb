@@ -17,9 +17,9 @@ class GiftsController < ApplicationController
   def new
     @categories = @@categories
     @user = User.where(username: params[:username]).first
-    if params[:name]
+    if params[:name] != ""
       item_search = ItemSearch.new(params[:category], { 'Keywords' => params[:name] })
-      response_group = ResponseGroup.new( 'Medium' )
+      # response_group = ResponseGroup.new( 'Medium' )
       request = Request.new
       # results = request.search(item_search, response_group)
       results = request.search(item_search)
@@ -35,9 +35,10 @@ class GiftsController < ApplicationController
   def aws_show
     @user = User.where(username: params[:username]).first
     item_lookup = ItemLookup.new( 'ASIN', { 'ItemId' => params[:asin], 'MerchantId' => 'Amazon' } )
-    response_group = ResponseGroup.new( 'Medium' )
+    # response_group = ResponseGroup.new( 'Medium' )
     request = Request.new
-    results = request.search( item_lookup, response_group )
+    # results = request.search( item_lookup, response_group )
+    results = request.search( item_lookup )
     @result = results.item_lookup_response[0].items.item
     @image_url = get_image_url(@result)
     @price = get_price(@result)
@@ -91,7 +92,11 @@ class GiftsController < ApplicationController
   def update
     user = User.where(username: params[:username]).first
     gift = Gift.find(params[:id])
-    gift.recipient_id = params[:new_recipient_id]
+    if params[:id] == 0
+      gift.recipient_id = nil
+    else
+      gift.recipient_id = params[:new_recipient_id]
+    end
     gift.save
     redirect_to "/users/#{user.username}/gifts/#{gift.id}"
   end

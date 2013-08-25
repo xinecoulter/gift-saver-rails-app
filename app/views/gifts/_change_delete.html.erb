@@ -2,7 +2,7 @@
 <form action="/users/<%= @user.username %>/gifts/<%= @gift.id %>" method="post">
   <label>Change gift recipient</label>
   <select name="new_recipient_id">
-    <option value="none">---</option>
+    <option value="<%= nil %>">---</option>
     <% @user.recipients.each do |recipient| %>
       <option value="<%= recipient.id %>">
         <%= recipient.name %>
