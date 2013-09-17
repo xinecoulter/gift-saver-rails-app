@@ -1,6 +1,10 @@
 <%= render partial: "shared/navbar" %>
 
+<div class="brown-div">
 <h1><%= @gift.name %></h1>
+</div>
+
+<div class="blue-div">
 <ul>
   <img src="<%= @gift.image %>" alt="<%= @gift.name %> image"/>
   <li>Category: <%= @gift.category %></li>
@@ -15,3 +19,4 @@
 </ul>
 
 <%= render partial: "change_delete" %>
+</div>

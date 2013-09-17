@@ -1,6 +1,8 @@
 <%= render partial: "shared/navbar" %>
 
+<div class="brown-div">
 <h1>Search for a gift</h1>
+</div>
 
 <form action="/users/<%= @user.username %>/gifts/new" method="get">
   <select name="category">
@@ -14,6 +16,7 @@
   <button>Search</button>
 </form>
 
+<div class="blue-div">
 <% unless @results.nil? %>
   <h3>You searched for "<%= params[:name] %>"</h3>
   <h4>Showing <%= @results.count %> results</h4>
@@ -25,3 +28,4 @@
     <% end %>
   </ol>
 <% end %>
+</div>

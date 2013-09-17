@@ -1,8 +1,10 @@
 <%= render partial: "shared/navbar" %>
 
+<div class="brown-div">
 <h1>Update account</h1>
+</div>
 
-
+<div class="blue-div">
 <!-- Displays errors in creating an account -->
 <% unless @user.nil? %>
   <% if @user.errors.any? %>
@@ -32,3 +34,4 @@
   <input type="hidden" name="_method" value="delete">
   <button>Delete Account</button>
 </form>
+</div>

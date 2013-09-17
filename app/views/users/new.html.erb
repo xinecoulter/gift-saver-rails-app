@@ -1,5 +1,8 @@
+<div class="brown-div">
 <h1>Create a user account</h1>
+</div>
 
+<div class="blue-div">
 <%= form_for @user do |f| %>
 
   <% if @user.errors.any? %>
@@ -28,3 +31,4 @@
 
   <%= f.submit %>
 <% end %>
+</div>
