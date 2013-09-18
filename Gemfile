@@ -7,7 +7,10 @@ ruby '1.9.3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg', :group => :production
+group :production do
+  gem 'pg'
+  gem 'newrelic_rpm'
+end
 
 
 # Gems used only for assets and not required
