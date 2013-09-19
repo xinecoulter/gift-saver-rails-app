@@ -40,3 +40,9 @@ body {
   opacity: 0.9;
   border-radius: 3px;
 }
+
+#user_nav {
+  background-color: white;
+  text-align: right;
+  padding-right: 1%;
+}

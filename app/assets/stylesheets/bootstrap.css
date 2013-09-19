@@ -317,6 +317,10 @@ a:focus {
 
 .span6 {
   width: 460px;
+
+  background-color: #99CCFF;
+  opacity: 0.9;
+  border-radius: 3px;
 }
 
 .span5 {
