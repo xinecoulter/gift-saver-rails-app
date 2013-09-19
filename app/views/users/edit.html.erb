@@ -1,10 +1,10 @@
-<%= render partial: "shared/navbar" %>
-
 <div class="brown-div">
-<h1>Update account</h1>
+<%= render partial: "shared/navbar" %>
 </div>
 
 <div class="blue-div">
+<h1>Update account</h1>
+
 <!-- Displays errors in creating an account -->
 <% unless @user.nil? %>
   <% if @user.errors.any? %>

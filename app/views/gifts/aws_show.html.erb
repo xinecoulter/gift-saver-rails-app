@@ -1,10 +1,10 @@
-<%= render partial: "shared/navbar" %>
-
 <div class="brown-div">
-<h1><%= @result.item_attributes.title %></h1>
+<%= render partial: "shared/navbar" %>
 </div>
 
 <div class="blue-div">
+<h1><%= @result.item_attributes.title %></h1>
+
 <ul>
   <img src="<%= @image_url %>" alt="<%= @result.item_attributes.title %> image"/>
   <li>Category: <%= @result.item_attributes.product_group %></li>

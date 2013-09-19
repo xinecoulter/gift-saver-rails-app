@@ -1,10 +1,10 @@
-<%= render partial: "shared/navbar" %>
-
 <div class="brown-div">
-<h1><%= @gift.name %></h1>
+<%= render partial: "shared/navbar" %>
 </div>
 
 <div class="blue-div">
+<h1><%= @gift.name %></h1>
+
 <ul>
   <img src="<%= @gift.image %>" alt="<%= @gift.name %> image"/>
   <li>Category: <%= @gift.category %></li>
