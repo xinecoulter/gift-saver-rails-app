@@ -22,7 +22,9 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 
-  background-image: url("gift-box-packaging.jpg");
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0))),
+                    url("gift-box-packaging.jpg");
+
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -33,6 +35,9 @@ body {
   background-color: #CC3333;
   opacity: 0.8;
   border-radius: 3px;
+
+  width: 100%;
+  text-align: right;
 }
 
 .blue-div {
