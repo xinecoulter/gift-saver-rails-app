@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div id="user_nav">
+<!-- <div id="user_nav">
   <% if current_user %>
     Signed in as <%= current_user.username %>
     <%= link_to "Sign out", sign_out_path %>
@@ -16,7 +16,21 @@
     <%= link_to "Sign in", sign_in_path %> or
     <%= link_to "Create an account", create_account_path %>
   <% end %>
-</div>
+</div> -->
+
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="#" class="brand">Gift Savers</a>
+      <ul class="nav">
+        <% if current_user %>
+          <li>Signed in as <%= current_user.username %></li>
+          <li><%= link_to "Sign out", sign_out_path %></li>
+        <% else %>
+          <li><%= link_to "Sign in", sign_in_path %> or <%= link_to "Create an account", create_account_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
 
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, :id => "flash#{name}" %>

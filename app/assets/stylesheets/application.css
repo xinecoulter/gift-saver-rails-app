@@ -39,10 +39,24 @@ body {
   text-align: right;
 }
 
-.blue-div {
+.content-div {
+  text-align: center;
+}
+
+.content-div div {
   background-color: #99CCFF;
   opacity: 0.9;
   border-radius: 3px;
+
+  display: inline-table;
+  border-width: 1px;
+  border-style: solid;
+
+  text-align: left;
+  padding: 5%;
+
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 #user_nav {
@@ -53,4 +67,8 @@ body {
 
 ul {
   list-style-type: none;
+}
+
+#summary {
+  float:left;
 }

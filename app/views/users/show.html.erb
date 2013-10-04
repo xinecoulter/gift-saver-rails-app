@@ -2,11 +2,10 @@
 <%= render partial: "home_navbar" %>
 </div>
 
-<div class="blue-div">
+<div class="content-div">
 <h1 class="text-left">Welcome, <%= @user.first_name %>!</h1>
 
-<div class="column">
-  <div class="span6">
+  <div>
     <% if @recipients.any? %>
       <h2>Gift Recipients:</h2>
       <ul>
@@ -21,7 +20,7 @@
     <% end %>
   </div>
 
-  <div class="span6">
+  <div>
     <% if @gifts.any? %>
       <h2>Potential Gifts:</h2>
       <ul>
@@ -35,5 +34,5 @@
       <h2>You have no potential gifts</h2>
     <% end %>
   </div>
-</div>
+
 </div>

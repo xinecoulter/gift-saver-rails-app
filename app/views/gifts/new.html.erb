@@ -2,7 +2,8 @@
 <%= render partial: "shared/navbar" %>
 </div>
 
-<div class="blue-div">
+<div class="content-div">
+<div>
 <h1>Search for a gift</h1>
 
 <form action="/users/<%= @user.username %>/gifts/new" method="get">
@@ -28,4 +29,5 @@
     <% end %>
   </ol>
 <% end %>
+</div>
 </div>
