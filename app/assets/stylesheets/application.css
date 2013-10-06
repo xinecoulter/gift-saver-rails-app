@@ -31,44 +31,6 @@ body {
   background-size: cover;
 }
 
-.brown-div {
-  background-color: #CC3333;
-  opacity: 0.8;
-
-  width: 100%;
-  text-align: right;
-}
-
-.content-div {
-  text-align: center;
-}
-
-.content-div div {
-  background-color: #99CCFF;
-  opacity: 0.9;
-  border-radius: 3px;
-
-  display: inline-table;
-  border-width: 1px;
-  border-style: solid;
-
-  text-align: left;
-  padding: 5%;
-
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-
-#user_nav {
-  background-color: white;
-  text-align: right;
-  padding-right: 1%;
-}
-
 ul {
   list-style-type: none;
-}
-
-#summary {
-  float:left;
 }
