@@ -9,12 +9,12 @@
       </option>
     <% end %>
   </select>
-  <input type="hidden" name="_method" value="put">
-<button>Update</button>
+  <input type="hidden" name="_method" value="put" />
+  <button>Update</button>
 </form>
 
 <!-- Delete Gift -->
 <form action="/users/<%= @user.username %>/gifts/<%= @gift.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
+  <input type="hidden" name="_method" value="delete" />
   <button>Delete Gift</button>
 </form>
