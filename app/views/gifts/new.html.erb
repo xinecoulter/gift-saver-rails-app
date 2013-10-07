@@ -2,24 +2,28 @@
 <%= render partial: "shared/navbar" %>
 </div> -->
 
-<section class="span12">
+<section class="span12 content">
   <header><h1>Search for a gift</h1></header>
 
   <article>
     <form action="/users/<%= @user.username %>/gifts/new" method="get">
       <select name="category">
-        <% @categories.each do |category| %>
-          <option value="<%= category %>">
-            <%= category %>
-          </option>
-        <% end %>
-      </select>
-      <input type="string" name="name" />
-      <button>Search</button>
+        <p>
+          <% @categories.each do |category| %>
+            <option value="<%= category %>">
+              <%= category %>
+            </option>
+          <% end %>
+        </select>
+        <input type="string" name="name" />
+        <button class="btn">Search</button>
+      </p>
     </form>
   </article>
 
   <article>
+    <div class="outer">
+    <div class="amazon-results">
     <% unless @results.nil? %>
       <header><h3>You searched for "<%= params[:name] %>"</h3></header>
       <h4>Showing <%= @results.count %> results</h4>
@@ -31,5 +35,7 @@
         <% end %>
       </ol>
     <% end %>
+    </div>
+    </div>
   </article>
 </section>
