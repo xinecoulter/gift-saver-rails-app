@@ -11,12 +11,10 @@
       <% end %>
     </select>
   </p>
-  <p>
     <input type='hidden' value="<%= @result.item_attributes.title %>" name="name" />
     <input type='hidden' value="<%= @result.item_attributes.product_group %>" name="category" />
     <input type='hidden' value="<%= @image_url %>" name="image" />
     <input type='hidden' value="<%= @price %>" name="price" />
     <input type='hidden' value="<%= @url %>" name="url" />
     <button class="btn">Add gift</button>
-  </p>
 </form>

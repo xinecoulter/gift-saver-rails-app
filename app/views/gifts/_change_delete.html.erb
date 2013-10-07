@@ -11,14 +11,12 @@
       <% end %>
     </select>
   </p>
-  <p>
     <input type="hidden" name="_method" value="put" />
     <button class="btn">Update</button>
-  </p>
 </form>
 
 <!-- Delete Gift -->
 <form action="/users/<%= @user.username %>/gifts/<%= @gift.id %>" method="post">
-  <input type="hidden" name="_method" value="delete" />
-  <button class="btn">Delete gift</button>
+    <input type="hidden" name="_method" value="delete" />
+    <button class="btn">Delete gift</button>
 </form>
