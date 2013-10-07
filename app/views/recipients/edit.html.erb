@@ -2,20 +2,18 @@
 <%= render partial: "shared/navbar" %>
 </div> -->
 
-<div class="content-div">
-<div>
-<h1>Update recipient</h1>
+<section class="span12">
+  <header><h1>Update recipient</h1></header>
 
-<!-- Displays errors in updating a recipient -->
-<%= render partial: "error" %>
+  <!-- Displays errors in updating a recipient -->
+  <%= render partial: "error" %>
 
-<form action="/users/<%= @user.username %>/recipients/<%= @recipient.id %>" method="post">
-  <label for="name">Change name</label><br/>
-  <input type="string" name="name" value="<%= @recipient.name %>" autofocus="true"/><br/>
-  <label for="name">Change birthday</label><br/>
-  <input type="date" name="birthday" value="<%= @recipient.birthday %>" /><br/>
-  <input type="hidden" name="_method" value="put" />
-  <button>Submit</button>
-</form>
-</div>
-</div>
+  <form action="/users/<%= @user.username %>/recipients/<%= @recipient.id %>" method="post">
+    <label for="name">Change name</label>
+    <input type="string" name="name" value="<%= @recipient.name %>" autofocus="true"/>
+    <label for="name">Change birthday</label>
+    <input type="date" name="birthday" value="<%= @recipient.birthday %>" />
+    <input type="hidden" name="_method" value="put" />
+    <button>Submit</button>
+  </form>
+</section>
