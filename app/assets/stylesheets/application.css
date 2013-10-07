@@ -74,12 +74,13 @@ ul {
 .outer {
   width: 50%;
   margin: 0 auto;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 3px;
 }
 
 .amazon-results {
   text-align: left;
-  margin: 1%;
+  padding: 1%;
+  background-color: white;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
 }

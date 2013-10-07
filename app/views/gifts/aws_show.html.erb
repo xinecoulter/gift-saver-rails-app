@@ -2,11 +2,11 @@
 <%= render partial: "shared/navbar" %>
 </div> -->
 
-<section class="span12">
+<section class="span12 content">
   <header><h1><%= @result.item_attributes.title %></h1></header>
 
+  <img src="<%= @image_url %>" alt="<%= @result.item_attributes.title %> image"/>
   <ul>
-    <img src="<%= @image_url %>" alt="<%= @result.item_attributes.title %> image"/>
     <li>Category: <%= @result.item_attributes.product_group %></li>
     <li>Price: <%= @price %></li>
     <li><a href="<%= @url %>" target="_blank">Click to view product on Amazon!</a></li>
