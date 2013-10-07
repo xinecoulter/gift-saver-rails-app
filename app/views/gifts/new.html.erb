@@ -2,32 +2,34 @@
 <%= render partial: "shared/navbar" %>
 </div> -->
 
-<div class="content-div">
-<div>
-<h1>Search for a gift</h1>
+<section class="span12">
+  <header><h1>Search for a gift</h1></header>
 
-<form action="/users/<%= @user.username %>/gifts/new" method="get">
-  <select name="category">
-    <% @categories.each do |category| %>
-      <option value="<%= category %>">
-        <%= category %>
-      </option>
-    <% end %>
-  </select>
-  <input type="string" name="name" />
-  <button>Search</button>
-</form>
+  <article>
+    <form action="/users/<%= @user.username %>/gifts/new" method="get">
+      <select name="category">
+        <% @categories.each do |category| %>
+          <option value="<%= category %>">
+            <%= category %>
+          </option>
+        <% end %>
+      </select>
+      <input type="string" name="name" />
+      <button>Search</button>
+    </form>
+  </article>
 
-<% unless @results.nil? %>
-  <h3>You searched for "<%= params[:name] %>"</h3>
-  <h4>Showing <%= @results.count %> results</h4>
-  <ol>
-    <% @results.each do |result| %>
-      <li>
-        <a href="/users/<%= @user.username %>/gifts/search/<%= result.asin %>"><%= result.item_attributes.title %></a><br/>
-      </li>
+  <article>
+    <% unless @results.nil? %>
+      <header><h3>You searched for "<%= params[:name] %>"</h3></header>
+      <h4>Showing <%= @results.count %> results</h4>
+      <ol>
+        <% @results.each do |result| %>
+          <li>
+            <a href="/users/<%= @user.username %>/gifts/search/<%= result.asin %>"><%= result.item_attributes.title %></a><br/>
+          </li>
+        <% end %>
+      </ol>
     <% end %>
-  </ol>
-<% end %>
-</div>
-</div>
+  </article>
+</section>
