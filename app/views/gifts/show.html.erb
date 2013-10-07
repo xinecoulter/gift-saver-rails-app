@@ -2,7 +2,7 @@
 <%= render partial: "shared/navbar" %>
 </div> -->
 
-<section class="span12">
+<section class="span12 content">
   <header><h1><%= @gift.name %></h1></header>
 
   <img src="<%= @gift.image %>" alt="<%= @gift.name %> image"/>
@@ -15,7 +15,8 @@
     <% else %>
       <li>Intended Gift Recipient: <a href="/users/<%= @user.username %>/recipients/<%= @recipient.id %>"><%= @recipient.name %></a></li>
     <% end %>
-    <li>Rating: <%= @gift.rating %><%= button_to "+1", edit_gift_path(rating: "up") %><%= button_to "-1", edit_gift_path(rating: "down") %></li>
+    <li>Rating: <%= @gift.rating %></li>
+    <li class="vote-buttons"><%= button_to "+1", edit_gift_path(rating: "up") %><%= button_to "-1", edit_gift_path(rating: "down") %></li>
   </ul>
 
   <%= render partial: "change_delete" %>
