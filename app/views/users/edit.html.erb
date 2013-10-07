@@ -2,38 +2,40 @@
 <%= render partial: "shared/navbar" %>
 </div> -->
 
-<div class="content-div">
-<div>
-<h1>Update account</h1>
+<section class="span12">
+  <header><h1>Update account</h1></header>
+</section>
 
-<!-- Displays errors in creating an account -->
-<% unless @user.nil? %>
-  <% if @user.errors.any? %>
-    <h2>Please resolve the following <%= pluralize(@user.errors.count, "error") %>:</h2>
-    <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
+<section class="span12">
+
+  <!-- Displays errors in creating an account -->
+  <% unless @user.nil? %>
+    <% if @user.errors.any? %>
+      <h2>Please resolve the following <%= pluralize(@user.errors.count, "error") %>:</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
   <% end %>
-<% end %>
 
-<!-- Update Account -->
-<form action="/users/<%= @user.username %>" method="post">
-  <label for="first_name">Change first name</label><br/>
-  <input type="string" name="first_name" value="<%= @user.first_name %>" autofocus="true"/><br/>
-  <label for="last_name">Change last name</label><br/>
-  <input type="string" name="last_name" value="<%= @user.last_name %>" /><br/>
-  <label for="email">Change e-mail address</label><br/>
-  <input type="string" name="email" value="<%= @user.email %>" /><br/>
-  <input type="hidden" name="_method" value="put">
-  <button>Submit</button>
-</form>
+  <!-- Update Account -->
+  <form action="/users/<%= @user.username %>" method="post">
+    <label for="first_name">Change first name</label>
+    <input type="string" name="first_name" value="<%= @user.first_name %>" autofocus="true"/>
+    <label for="last_name">Change last name</label>
+    <input type="string" name="last_name" value="<%= @user.last_name %>" />
+    <label for="email">Change e-mail address</label>
+    <input type="string" name="email" value="<%= @user.email %>" />
+    <input type="hidden" name="_method" value="put">
+    <button>Submit</button>
+  </form>
 
-<!-- Delete Account -->
-<form action="/users/<%= @user.username %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <button>Delete Account</button>
-</form>
-</div>
-</div>
+  <!-- Delete Account -->
+  <form action="/users/<%= @user.username %>" method="post">
+    <input type="hidden" name="_method" value="delete" />
+    <button>Delete Account</button>
+  </form>
+
+</section>
