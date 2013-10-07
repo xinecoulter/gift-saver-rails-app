@@ -1,17 +1,17 @@
-<div class="content-div">
-<div>
-<h1>Log in</h1>
+<section class="span12">
+  <header><h1>Log in</h1></header>
+<section>
 
-<%= form_tag sessions_path do %>
-  <p>
-    <%= label_tag :username %><br />
-    <%= text_field_tag :username, params[:username] %>
-  </p>
-  <p>
-    <%= label_tag :password %><br />
-    <%= password_field_tag :password %>
-  </p>
-  <p class="button"><%= submit_tag %></p>
-<% end %>
-</div>
-</div>
+<section class="span12">
+  <%= form_tag sessions_path do %>
+    <p>
+      <%= label_tag :username %>
+      <%= text_field_tag :username, params[:username] %>
+    </p>
+    <p>
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    </p>
+    <p class="button"><%= submit_tag %></p>
+  <% end %>
+</section>
