@@ -2,23 +2,21 @@
 <%= render partial: "shared/navbar" %>
 </div> -->
 
-<div class="content-div">
-<div>
-<h1><%= @gift.name %></h1>
+<section class="span12">
+  <header><h1><%= @gift.name %></h1></header>
 
-<ul>
   <img src="<%= @gift.image %>" alt="<%= @gift.name %> image"/>
-  <li>Category: <%= @gift.category %></li>
-  <li>Price: <%= @gift.price %></li>
-  <li><a href="<%= @gift.url %>" target="_blank">Click to view product on Amazon!</a></li>
-  <% if @recipient == nil %>
-    <li>Intended Gift Recipient: none</li>
-  <% else %>
-    <li>Intended Gift Recipient: <a href="/users/<%= @user.username %>/recipients/<%= @recipient.id %>"><%= @recipient.name %></a></li>
-  <% end %>
-  <li>Rating: <%= @gift.rating %><%= button_to "+1", edit_gift_path(rating: "up") %><%= button_to "-1", edit_gift_path(rating: "down") %></li>
-</ul>
+  <ul>
+    <li>Category: <%= @gift.category %></li>
+    <li>Price: <%= @gift.price %></li>
+    <li><a href="<%= @gift.url %>" target="_blank">Click to view product on Amazon!</a></li>
+    <% if @recipient == nil %>
+      <li>Intended Gift Recipient: none</li>
+    <% else %>
+      <li>Intended Gift Recipient: <a href="/users/<%= @user.username %>/recipients/<%= @recipient.id %>"><%= @recipient.name %></a></li>
+    <% end %>
+    <li>Rating: <%= @gift.rating %><%= button_to "+1", edit_gift_path(rating: "up") %><%= button_to "-1", edit_gift_path(rating: "down") %></li>
+  </ul>
 
-<%= render partial: "change_delete" %>
-</div>
-</div>
+  <%= render partial: "change_delete" %>
+</section>
