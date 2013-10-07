@@ -2,17 +2,21 @@
 <%= render partial: "shared/navbar" %>
 </div> -->
 
-<section class="span12">
+<section class="span12 content">
   <header><h1>Add a gift recipient</h1></header>
 
   <!-- Displays errors in creating a recipient -->
   <%= render partial: "error" %>
 
   <form action="/users/<%= @user.username %>/recipients" method="post">
-    <label for="name">Enter a name</label>
-    <input type="string" name="name" autofocus="true"/>
-    <label for="name">Enter a birthday</label>
-    <input type="date" name="birthday" />
-    <button>Submit</button>
+    <p>
+      <label for="name">Enter a name</label>
+      <input type="string" name="name" autofocus="true"/>
+    </p>
+    <p>
+      <label for="name">Enter a birthday</label>
+      <input type="date" name="birthday" />
+    </p>
+    <p><button>Submit</button></p>
   </form>
 </section>
