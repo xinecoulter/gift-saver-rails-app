@@ -2,7 +2,7 @@
 <%= render partial: "shared/navbar" %>
 </div> -->
 
-<section class="span12">
+<section class="span12 content">
   <header><h1>Update account</h1></header>
 
   <!-- Displays errors in creating an account -->
@@ -19,14 +19,22 @@
 
   <!-- Update Account -->
   <form action="/users/<%= @user.username %>" method="post">
+    <p>
     <label for="first_name">Change first name</label>
     <input type="string" name="first_name" value="<%= @user.first_name %>" autofocus="true"/>
+    </p>
+    <p>
     <label for="last_name">Change last name</label>
     <input type="string" name="last_name" value="<%= @user.last_name %>" />
+    </p>
+    <p>
     <label for="email">Change e-mail address</label>
     <input type="string" name="email" value="<%= @user.email %>" />
+    </p>
+    <p>
     <input type="hidden" name="_method" value="put">
     <button>Submit</button>
+    </p>
   </form>
 
   <!-- Delete Account -->
