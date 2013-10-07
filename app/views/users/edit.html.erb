@@ -33,14 +33,14 @@
     </p>
     <p>
       <input type="hidden" name="_method" value="put">
-      <button>Submit</button>
+      <button class="btn">Submit</button>
     </p>
   </form>
 
   <!-- Delete Account -->
   <form action="/users/<%= @user.username %>" method="post">
     <input type="hidden" name="_method" value="delete" />
-    <button>Delete Account</button>
+    <button class="btn">Delete Account</button>
   </form>
 
 </section>
