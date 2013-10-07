@@ -1,6 +1,4 @@
-<a href="/users/<%= @user.username %>/recipients/<%= @recipient.id %>/edit">Edit recipient</a><br/>
-
 <form action="/users/<%= @user.username %>/recipients/<%= @recipient.id %>" method="post">
   <input type="hidden" name="_method" value="delete">
-  <button class="btn">Delete Recipient</button>
+  <button class="btn">Delete recipient</button>
 </form>

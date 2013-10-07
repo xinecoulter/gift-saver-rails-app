@@ -3,7 +3,10 @@
 </div> -->
 
 <section class="span12 content">
-  <header><h1><%= @recipient.name %></h1></header>
+  <header>
+    <h1><%= @recipient.name %></h1>
+    <a href="/users/<%= @user.username %>/recipients/<%= @recipient.id %>/edit">Edit recipient</a>
+  </header>
 
   <article>
       <% if @recipient.birthday? %>
