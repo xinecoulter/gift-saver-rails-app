@@ -6,3 +6,12 @@
 .navbar-inner .nav {
   float: right;
 }
+
+.span12 {
+  width: 100%;
+  margin-left: 0;
+}
+
+ul {
+  margin-left: 0;
+}

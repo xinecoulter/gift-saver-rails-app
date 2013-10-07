@@ -2,10 +2,10 @@
 <%= render partial: "home_navbar" %>
 </div> -->
 
-<div class="span12">
-  <header><h1 class="text-left">Welcome, <%= @user.first_name %>!</h1></header>
+<div class="user-summary">
+    <header><h1 class="text-left">Welcome, <%= @user.first_name %>!</h1></header>
 
-  <section class="span6">
+  <div class="recipient-list">
     <% if @recipients.any? %>
       <header><h2>Gift Recipients</h2></header>
       <ul>
@@ -19,9 +19,9 @@
       <header><h3>You have no gift recipients</h3></header>
     <% end %>
     <a href="/users/<%= @user.username %>/recipients/new" class="btn">Create a new recipient</a></div>
-  </section>
+  </div>
 
-  <section class="span6">
+  <div class="gift-list">
     <% if @gifts.any? %>
       <header><h2>Potential Gifts</h2></header>
       <ul>
@@ -35,5 +35,5 @@
       <header><h3>You have no potential gifts</h3></header>
     <% end %>
     <a href="/users/<%= @user.username %>/gifts" class="btn">Find gifts</a>
-  </section>
+  </div>
 </div>
