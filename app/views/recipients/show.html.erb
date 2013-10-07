@@ -2,30 +2,31 @@
 <%= render partial: "shared/navbar" %>
 </div> -->
 
-<div class="content-div">
-<div>
-<h1><%= @recipient.name %></h1>
+<section class="span12">
+  <header><h1><%= @recipient.name %></h1></header>
 
-<% if @recipient.birthday? %>
-  <h2>Birthday: <%= "#{@recipient.birthday.month}/#{@recipient.birthday.day}/#{@recipient.birthday.year}" %></h2>
-  <h3>You have <%= @time_until_next_birthday %> days until <%= @recipient.name %>'s next birthday!</h3>
-<% else %>
-  <h2>Birthday: unknown</h2>
-<% end %>
+  <article>
+      <% if @recipient.birthday? %>
+        <header><h2>Birthday: <%= "#{@recipient.birthday.month}/#{@recipient.birthday.day}/#{@recipient.birthday.year}" %></h2></header>
+        <h3>You have <%= @time_until_next_birthday %> days until <%= @recipient.name %>'s next birthday!</h3>
+      <% else %>
+        <header><h2>Birthday: unknown</h2></header>
+      <% end %>
+  </article>
 
-<% if @recipient.gifts.any? %>
-  <h3>Potential Gifts:</h3>
-  <ul>
-    <% @recipient.gifts.each do |gift| %>
-      <li>
-        <a href="/users/<%= @user.username %>/gifts/<%= gift.id %>"><%= gift.name %></a>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <h3>Potential Gifts: none</h3>
-<% end %>
+  <% if @recipient.gifts.any? %>
+    <header><h3>Potential Gifts</h3></header>
+    <ul>
+      <% @recipient.gifts.each do |gift| %>
+        <li>
+          <a href="/users/<%= @user.username %>/gifts/<%= gift.id %>"><%= gift.name %></a>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <header><h3>Potential Gifts</h3></header>
+    <p>none</p>
+  <% end %>
 
-<%= render partial: "edit_delete" %>
-</div>
-</div>
+  <%= render partial: "edit_delete" %>
+</section>
