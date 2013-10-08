@@ -3,20 +3,22 @@
 </div> -->
 
 <section class="span12 content">
-  <header><h1>Add a gift recipient</h1></header>
+  <div class="white">
+    <header><h1>Add a gift recipient</h1></header>
 
-  <!-- Displays errors in creating a recipient -->
-  <%= render partial: "error" %>
+    <!-- Displays errors in creating a recipient -->
+    <%= render partial: "error" %>
 
-  <form action="/users/<%= @user.username %>/recipients" method="post">
-    <p>
-      <label for="name">Enter a name</label>
-      <input type="string" name="name" autofocus="true"/>
-    </p>
-    <p>
-      <label for="name">Enter a birthday</label>
-      <input type="date" name="birthday" />
-    </p>
-    <p><button class="btn">Submit</button></p>
-  </form>
+    <form action="/users/<%= @user.username %>/recipients" method="post">
+      <p>
+        <label for="name">Enter a name</label>
+        <input type="string" name="name" autofocus="true"/>
+      </p>
+      <p>
+        <label for="name">Enter a birthday</label>
+        <input type="date" name="birthday" />
+      </p>
+      <p><button class="btn">Submit</button></p>
+    </form>
+  </div>
 </section>
