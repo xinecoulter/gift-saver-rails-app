@@ -3,33 +3,35 @@
 </div> -->
 
 <section class="span12 content">
-  <header>
-    <h1><%= @recipient.name %></h1>
-    <a href="/users/<%= @user.username %>/recipients/<%= @recipient.id %>/edit">Edit recipient</a>
-  </header>
+  <div class="white">
+    <header>
+      <h1><%= @recipient.name %></h1>
+      <a href="/users/<%= @user.username %>/recipients/<%= @recipient.id %>/edit">Edit recipient</a>
+    </header>
 
-  <article>
-      <% if @recipient.birthday? %>
-        <header><h2>Birthday: <%= "#{@recipient.birthday.month}/#{@recipient.birthday.day}/#{@recipient.birthday.year}" %></h2></header>
-        <h3>You have <%= @time_until_next_birthday %> days until <%= @recipient.name %>'s next birthday!</h3>
-      <% else %>
-        <header><h2>Birthday: unknown</h2></header>
-      <% end %>
-  </article>
+    <article>
+        <% if @recipient.birthday? %>
+          <p>Birthday: <%= "#{@recipient.birthday.month}/#{@recipient.birthday.day}/#{@recipient.birthday.year}" %></p>
+          <p>You have <%= @time_until_next_birthday %> days until <%= @recipient.name %>'s next birthday!</p>
+        <% else %>
+          <p>Birthday: unknown</p>
+        <% end %>
+    </article>
 
-  <% if @recipient.gifts.any? %>
-    <header><h3>Potential Gifts</h3></header>
-    <ul>
-      <% @recipient.gifts.each do |gift| %>
-        <li>
-          <a href="/users/<%= @user.username %>/gifts/<%= gift.id %>"><%= gift.name %></a>
-        </li>
-      <% end %>
-    </ul>
-  <% else %>
-    <header><h3>Potential Gifts</h3></header>
-    <h4>none</h4>
-  <% end %>
+    <% if @recipient.gifts.any? %>
+      <header><h3>Potential Gifts</h3></header>
+      <ul>
+        <% @recipient.gifts.each do |gift| %>
+          <li>
+            <a href="/users/<%= @user.username %>/gifts/<%= gift.id %>"><%= gift.name %></a>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <header><h3>Potential Gifts</h3></header>
+      <h4>none</h4>
+    <% end %>
 
-  <%= render partial: "edit_delete" %>
+    <%= render partial: "edit_delete" %>
+  </div>
 </section>
