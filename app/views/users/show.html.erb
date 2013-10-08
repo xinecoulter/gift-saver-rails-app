@@ -3,37 +3,42 @@
 </div> -->
 
 <div class="user-summary">
-    <header><h1 class="text-left">Welcome, <%= @user.first_name %>!</h1></header>
+  <div class="user-summary-white">
+  <header><h1 class="text-left">Welcome, <%= @user.first_name %>!</h1></header>
+  <div class="outer-user">
 
-  <div class="recipient-list">
-    <% if @recipients.any? %>
-      <header><h2>Gift Recipients</h2></header>
-      <ul>
-        <% @recipients.each do |recipient| %>
-          <li>
-            <%= link_to recipient.name, "/users/#{@user.username}/recipients/#{recipient.id}" %>
-          </li>
-        <% end %>
-      </ul>
-    <% else %>
-      <header><h3>You have no gift recipients</h3></header>
-    <% end %>
-    <a href="/users/<%= @user.username %>/recipients/new" class="btn">Create a new recipient</a></div>
-  </div>
+    <div class="recipients-list">
+      <% if @recipients.any? %>
+        <header><h2>Gift Recipients</h2></header>
+        <ul>
+          <% @recipients.each do |recipient| %>
+            <li>
+              <%= link_to recipient.name, "/users/#{@user.username}/recipients/#{recipient.id}" %>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <header><h3>You have no gift recipients</h3></header>
+      <% end %>
+      <a href="/users/<%= @user.username %>/recipients/new" class="btn">Create a new recipient</a>
+    </div>
 
-  <div class="gift-list">
-    <% if @gifts.any? %>
-      <header><h2>Potential Gifts</h2></header>
-      <ul>
-        <% @gifts.each do |gift| %>
-          <li>
-            <%= link_to gift.name, "/users/#{@user.username}/gifts/#{gift.id}" %>
-          </li>
-        <% end %>
-      </ul>
-    <% else %>
-      <header><h3>You have no potential gifts</h3></header>
-    <% end %>
-    <a href="/users/<%= @user.username %>/gifts" class="btn">Find gifts</a>
+    <div class="gifts-list">
+      <% if @gifts.any? %>
+        <header><h2>Potential Gifts</h2></header>
+        <ul>
+          <% @gifts.each do |gift| %>
+            <li>
+              <%= link_to gift.name, "/users/#{@user.username}/gifts/#{gift.id}" %>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <header><h3>You have no potential gifts</h3></header>
+      <% end %>
+      <a href="/users/<%= @user.username %>/gifts" class="btn">Find gifts</a>
+    </div>
+
   </div>
+</div>
 </div>

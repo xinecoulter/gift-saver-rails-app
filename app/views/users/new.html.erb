@@ -1,46 +1,48 @@
 <section class="span12 content">
-  <header><h1>Create a user account</h1></header>
+  <div class="white">
+    <header><h1>Create a user account</h1></header>
 
-  <%= form_for @user do |f| %>
+    <%= form_for @user do |f| %>
 
-    <% if @user.errors.any? %>
-      <div class="error_messages">
-        <h2>Bad input!</h2>
-        <ul>
-          <% @user.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
+      <% if @user.errors.any? %>
+        <div class="error_messages">
+          <h2>Bad input!</h2>
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <p>
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+      </p>
+      <p>
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+      </p>
+      <p>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </p>
+      <p>
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+      </p>
+      <p>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </p>
+      <p>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+      </p>
+
+      <!-- <p><%= f.submit %></p> -->
+      <p><button class="btn">Submit</button></p>
+
     <% end %>
-
-    <p>
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name %>
-    </p>
-    <p>
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name %>
-    </p>
-    <p>
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-    </p>
-    <p>
-      <%= f.label :username %>
-      <%= f.text_field :username %>
-    </p>
-    <p>
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-    </p>
-    <p>
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation %>
-    </p>
-
-    <!-- <p><%= f.submit %></p> -->
-    <p><button class="btn">Submit</button></p>
-
-  <% end %>
+  </div>
 </section>
