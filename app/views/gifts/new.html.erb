@@ -3,39 +3,41 @@
 </div> -->
 
 <section class="span12 content">
-  <header><h1>Search for a gift</h1></header>
+  <div class="white">
+    <header><h1>Search for a gift</h1></header>
 
-  <article>
-    <form action="/users/<%= @user.username %>/gifts/new" method="get">
-      <select name="category">
-        <p>
-          <% @categories.each do |category| %>
-            <option value="<%= category %>">
-              <%= category %>
-            </option>
+    <article>
+      <form action="/users/<%= @user.username %>/gifts/new" method="get">
+        <select name="category">
+          <p>
+            <% @categories.each do |category| %>
+              <option value="<%= category %>">
+                <%= category %>
+              </option>
+            <% end %>
+          </select>
+          <input type="string" name="name" />
+          <button class="btn">Search</button>
+        </p>
+      </form>
+    </article>
+
+    <article>
+      <div class="outer">
+      <div class="amazon-results">
+      <% unless @results.nil? %>
+        <header><h3>You searched for "<%= params[:name] %>"</h3></header>
+        <h4>Showing <%= @results.count %> results</h4>
+        <ol>
+          <% @results.each do |result| %>
+            <li>
+              <a href="/users/<%= @user.username %>/gifts/search/<%= result.asin %>"><%= result.item_attributes.title %></a><br/>
+            </li>
           <% end %>
-        </select>
-        <input type="string" name="name" />
-        <button class="btn">Search</button>
-      </p>
-    </form>
-  </article>
-
-  <article>
-    <div class="outer">
-    <div class="amazon-results">
-    <% unless @results.nil? %>
-      <header><h3>You searched for "<%= params[:name] %>"</h3></header>
-      <h4>Showing <%= @results.count %> results</h4>
-      <ol>
-        <% @results.each do |result| %>
-          <li>
-            <a href="/users/<%= @user.username %>/gifts/search/<%= result.asin %>"><%= result.item_attributes.title %></a><br/>
-          </li>
-        <% end %>
-      </ol>
-    <% end %>
-    </div>
-    </div>
-  </article>
+        </ol>
+      <% end %>
+      </div>
+      </div>
+    </article>
+  </div>
 </section>
