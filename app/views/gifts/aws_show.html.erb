@@ -3,14 +3,16 @@
 </div> -->
 
 <section class="span12 content">
-  <header><h1><%= @result.item_attributes.title %></h1></header>
+  <div class="white">
+    <header><h1><%= @result.item_attributes.title %></h1></header>
 
-  <img src="<%= @image_url %>" alt="<%= @result.item_attributes.title %> image"/>
-  <ul>
-    <li>Category: <%= @result.item_attributes.product_group %></li>
-    <li>Price: <%= @price %></li>
-    <li><a href="<%= @url %>" target="_blank">Click to view product on Amazon!</a></li>
-  </ul>
+    <img src="<%= @image_url %>" alt="<%= @result.item_attributes.title %> image"/>
+    <ul>
+      <li>Category: <%= @result.item_attributes.product_group %></li>
+      <li>Price: <%= @price %></li>
+      <li><a href="<%= @url %>" target="_blank">Click to view product on Amazon!</a></li>
+    </ul>
 
-  <%= render partial: "add_gift" %>
+    <%= render partial: "add_gift" %>
+  </div>
 </section>
