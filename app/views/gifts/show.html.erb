@@ -3,21 +3,23 @@
 </div> -->
 
 <section class="span12 content">
-  <header><h1><%= @gift.name %></h1></header>
+  <div class="white">
+    <header><h1><%= @gift.name %></h1></header>
 
-  <img src="<%= @gift.image %>" alt="<%= @gift.name %> image"/>
-  <ul>
-    <li>Category: <%= @gift.category %></li>
-    <li>Price: <%= @gift.price %></li>
-    <li><a href="<%= @gift.url %>" target="_blank">Click to view product on Amazon!</a></li>
-    <% if @recipient == nil %>
-      <li>Intended Gift Recipient: none</li>
-    <% else %>
-      <li>Intended Gift Recipient: <a href="/users/<%= @user.username %>/recipients/<%= @recipient.id %>"><%= @recipient.name %></a></li>
-    <% end %>
-    <li>Rating: <%= @gift.rating %></li>
-    <li class="vote-buttons"><%= button_to "+1", edit_gift_path(rating: "up") %><%= button_to "-1", edit_gift_path(rating: "down") %></li>
-  </ul>
+    <img src="<%= @gift.image %>" alt="<%= @gift.name %> image"/>
+    <ul>
+      <li>Category: <%= @gift.category %></li>
+      <li>Price: <%= @gift.price %></li>
+      <li><a href="<%= @gift.url %>" target="_blank">Click to view product on Amazon!</a></li>
+      <% if @recipient == nil %>
+        <li>Intended Gift Recipient: none</li>
+      <% else %>
+        <li>Intended Gift Recipient: <a href="/users/<%= @user.username %>/recipients/<%= @recipient.id %>"><%= @recipient.name %></a></li>
+      <% end %>
+      <li>Rating: <%= @gift.rating %></li>
+      <li class="vote-buttons"><%= button_to "+1", edit_gift_path(rating: "up") %><%= button_to "-1", edit_gift_path(rating: "down") %></li>
+    </ul>
 
-  <%= render partial: "change_delete" %>
+    <%= render partial: "change_delete" %>
+  </div>
 </section>
